@@ -1,0 +1,862 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrion Pratas | Joias em Prata 925 e Ouro 18k</title>
+
+<!-- Meta Tags SEO -->
+<meta name="description" content="Carrion Pratas - Encontre joias exclusivas em Prata 925 e Ouro 18k na Zona Leste de São Paulo. Anéis, colares, brincos e pulseiras com entrega garantida.">
+<meta name="keywords" content="joias, prata 925, ouro 18k, carrion pratas, aneis, colares, brincos, zona leste sp">
+
+<!-- Open Graph (WhatsApp, Instagram, Facebook) -->
+<meta property="og:title" content="Carrion Pratas | Joias e Pratas">
+<meta property="og:description" content="Conheça nossas peças exclusivas em Prata 925 e Ouro 18k. Faça seu pedido diretamente pelo WhatsApp!">
+<meta property="og:image" content="./logotipo1.jpg">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --dourado: #b8952f;
+    --dourado-claro: #d9b657;
+    --preto: #1a1a1a;
+    --cinza-claro: #f7f5f0;
+    --texto: #333;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cinza-claro);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* CABEÇALHO E NAVEGAÇÃO */
+  header {
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  nav {
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-family: inherit;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  nav button:hover {
+    color: #fff;
+  }
+
+  nav button.ativo {
+    color: var(--dourado-claro);
+    border-bottom: 3px solid var(--dourado-claro);
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .aba {
+    display: none;
+  }
+
+  .aba.ativa {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ABA INÍCIO */
+  .inicio-conteudo {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+
+  .inicio-conteudo h2 {
+    font-size: 1.8rem;
+    color: var(--preto);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  .inicio-conteudo p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .linha-decorativa {
+    width: 80px;
+    height: 2px;
+    background: var(--dourado);
+    margin: 20px auto;
+  }
+
+  /* ABA CATÁLOGO */
+  .catalogo-titulo {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--preto);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .categoria-titulo {
+    font-size: 1.3rem;
+    color: var(--preto);
+    border-bottom: 1px solid var(--dourado);
+    padding-bottom: 6px;
+    margin: 35px 0 20px 0;
+    letter-spacing: 1px;
+  }
+
+  .catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+  }
+
+  .card-joia {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-joia:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .card-joia img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background: #eee;
+  }
+
+  .card-joia-conteudo {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-joia-conteudo h3 {
+    font-size: 1.1rem;
+    color: var(--preto);
+    margin-bottom: 8px;
+  }
+
+  .card-joia-conteudo p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    min-height: 40px;
+  }
+
+  .card-joia-valor {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--dourado);
+    margin-bottom: 4px;
+  }
+
+  .card-joia-aviso {
+    font-size: 0.78rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .btn-comprar-wa {
+    display: inline-block;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: auto;
+    transition: background 0.25s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .btn-comprar-wa:hover {
+    background: #1ebc57;
+  }
+
+  /* BOTÃO FLUTUANTE GARANTIDO NA BORDA DA TELA INTEIRA */
+  #chat-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999999;
+    font-family: 'Georgia', serif;
+  }
+
+  #chat-btn-toggle {
+    background: var(--preto);
+    color: var(--dourado-claro);
+    border: 2px solid var(--dourado);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 28px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #chat-btn-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  #chat-container {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 340px;
+    height: 460px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+
+  #chat-header {
+    background: var(--preto);
+    color: var(--dourado-claro);
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  #chat-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #faf9f6;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .msg {
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+
+  .msg.bot {
+    background: #fff;
+    color: var(--texto);
+    align-self: flex-start;
+    border: 1px solid #e5e0d8;
+  }
+
+  .msg.user {
+    background: var(--dourado);
+    color: #fff;
+    align-self: flex-end;
+  }
+
+  .chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .chat-opt-btn {
+    background: #fff;
+    border: 1px solid var(--dourado);
+    color: var(--preto);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .chat-opt-btn:hover {
+    background: var(--dourado);
+    color: #fff;
+  }
+
+  /* RODAPÉ */
+  footer {
+    background: var(--preto);
+    color: #ccc;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+
+  footer h4 {
+    color: var(--dourado-claro);
+    letter-spacing: 2px;
+    font-weight: normal;
+    margin-bottom: 14px;
+  }
+
+  .contatos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+  }
+
+  .contatos a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contatos a:hover {
+    color: var(--dourado-claro);
+  }
+
+  footer .copy {
+    margin-top: 18px;
+    font-size: 0.8rem;
+    color: #777;
+  }
+
+  @media (max-width: 768px) {
+    #chat-container {
+      width: 90vw;
+      right: 0;
+      height: 420px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/logotipo1.jpg" alt="Carrion Pratas Banner" class="banner-img">
+  <nav>
+    <button class="ativo" onclick="mostrarAba('inicio', this)">Início</button>
+    <button onclick="mostrarAba('catalogo', this)">Catálogo</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ABA INÍCIO -->
+  <section id="inicio" class="aba ativa">
+    <div class="inicio-conteudo">
+      <h2>Bem-vindo(a) à Carrion Pratas!</h2>
+      <div class="linha-decorativa"></div>
+      <p>
+        A <strong>Carrion Pratas</strong> nasceu do amor por joias e do desejo de transformar esse encanto em uma experiência simples, especial e acessível para cada cliente.
+      </p>
+      <p style="margin-top: 16px;">
+        Moradora da Zona Leste de São Paulo e apaixonada pelo universo das joias, a proprietária da loja decidiu transformar esse gosto em um negócio, levando peças cuidadosamente escolhidas a mais pessoas e tornando a experiência de compra prática e personalizada.
+      </p>
+      <p style="margin-top: 16px;">
+        Aqui, você encontra uma vitrine preparada para conhecer nossas joias, descobrir sua próxima peça favorita e falar diretamente conosco. Tire suas dúvidas, combine todos os detalhes e finalize seu pedido de forma rápida e segura pelo WhatsApp.
+      </p>
+      <p style="margin-top: 20px;">
+        <strong>Encontre a joia que combina com você e fale com a Carrion Pratas.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ABA CATÁLOGO -->
+  <section id="catalogo" class="aba">
+    <h2 class="catalogo-titulo">Catálogo de Peças</h2>
+    <div class="linha-decorativa" style="margin-top:0;"></div>
+
+    <!-- SEÇÃO 1: ALIANÇAS E ANÉIS -->
+    <h3 class="categoria-titulo">Alianças e Anéis</h3>
+    <div class="catalogo-grid">
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/1.jpg" alt="Joia 1">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Banhada a Ouro 18k</h3>
+          <p>Acompanha aparador delicado com pedras cravejadas e solitário.</p>
+          <span class="card-joia-valor">R$ 550,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Banhada+a+Ouro+18k+com+Aparador" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/2.jpg" alt="Joia 2">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Banhada a Ouro 18k</h3>
+          <p>Trabalhada com detalhe central e 15 pedras zircônia.</p>
+          <span class="card-joia-valor">R$ 470,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Banhada+a+Ouro+18k+15+pedras" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/3.jpg" alt="Joia 3">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Moeda Antiga</h3>
+          <p>Com forro de aço antialérgico e 15 pedras zircônia.</p>
+          <span class="card-joia-valor">R$ 320,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Moeda+Antiga+Forro+de+A%C3%A7o" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/4.jpg" alt="Joia 4">
+        <div class="card-joia-conteudo">
+          <h3>Aliança com Anel Solitário</h3>
+          <p>Opção em Moeda Antiga (R$ 250,00) ou Banhada a Ouro 18k (R$ 350,00).</p>
+          <span class="card-joia-valor">A partir de R$ 250,00</span>
+          <span class="card-joia-aviso">Ambas acompanham anel solitário</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+com+Anel+Solit%C3%A1rio" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/5.jpg" alt="Joia 5">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Banhada a Ouro 18k</h3>
+          <p>Acabamento escovado/acetinado, acompanha aparador trabalhado.</p>
+          <span class="card-joia-valor">R$ 450,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Banhada+a+Ouro+com+Aparador" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/6.jpg" alt="Joia 6">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Tradicional Anatomic</h3>
+          <p>Moeda Antiga (R$ 300,00) ou opção em Banho de Ouro 18k (R$ 420,00).</p>
+          <span class="card-joia-valor">R$ 300,00 / R$ 420,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Tradicional" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/7.jpg" alt="Joia 7">
+        <div class="card-joia-conteudo">
+          <h3>Aliança Reta Polida</h3>
+          <p>Moeda Antiga (R$ 250,00) ou Banhada a Ouro 18k (R$ 350,00).</p>
+          <span class="card-joia-valor">A partir de R$ 250,00</span>
+          <span class="card-joia-aviso">Consulte disponibilidade e tamanhos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+Reta+Polida" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/8.jpg" alt="Joia 8">
+        <div class="card-joia-conteudo">
+          <h3>Anel Solitário Coração Rosa</h3>
+          <p>Confeccionado em Prata 950 com zircônia central em formato de coração.</p>
+          <span class="card-joia-valor">R$ 289,99</span>
+          <span class="card-joia-aviso">Prata 950 de alta qualidade</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Anel+Solit%C3%A1rio+Rosa+em+Prata+950" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/9.jpg" alt="Joia 9">
+        <div class="card-joia-conteudo">
+          <h3>Anel Solitário em Prata 925</h3>
+          <p>Solitário clássico com zircônia cravejada, acentuando a elegância.</p>
+          <span class="card-joia-valor">R$ 129,99</span>
+          <span class="card-joia-aviso">Prata 925 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Anel+Solit%C3%A1rio+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/13.jpg" alt="Joia 13">
+        <div class="card-joia-conteudo">
+          <h3>Aliança em Prata 950</h3>
+          <p>Acompanha solitário.</p>
+          <span class="card-joia-valor">R$ 550,00</span>
+          <span class="card-joia-aviso">Prata 950 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+em+Prata+950+com+Solit%C3%A1rio" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/14.jpg" alt="Joia 14">
+        <div class="card-joia-conteudo">
+          <h3>Aliança em Prata 950</h3>
+          <p>Modelo polido reto, acompanha anel solitário elegante.</p>
+          <span class="card-joia-valor">R$ 380,00</span>
+          <span class="card-joia-aviso">Prata 950 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+em+Prata+950" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/15.jpg" alt="Joia 15">
+        <div class="card-joia-conteudo">
+          <h3>Aliança em Prata 950</h3>
+          <p>Design sofisticado acompanhando 30 pedras de zircônia e solitário.</p>
+          <span class="card-joia-valor">R$ 580,00</span>
+          <span class="card-joia-aviso">Acompanha 30 pedras em zircônia</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+em+Prata+950+com+30+pedras+em+zirc%C3%B4nia" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEÇÃO 2: COLARES -->
+    <h3 class="categoria-titulo">Colares</h3>
+    <div class="catalogo-grid">
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/10.jpg" alt="Joia 10">
+        <div class="card-joia-conteudo">
+          <h3>Colar "Amor" em Prata 925</h3>
+          <p>Corrente veneziana delicada com pingente manuscrito "Amor".</p>
+          <span class="card-joia-valor">R$ 119,99</span>
+          <span class="card-joia-aviso">Prata 925 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Colar+em+Prata+925+Amor" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/12.jpg" alt="Joia 12">
+        <div class="card-joia-conteudo">
+          <h3>Colar "Vida" em Prata 925</h3>
+          <p>Corrente delicada em prata legítima com pingente manuscrito "Vida".</p>
+          <span class="card-joia-valor">R$ 119,99</span>
+          <span class="card-joia-aviso">Prata 925 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Colar+em+Prata+925+Vida" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/11.jpg" alt="Joia 11">
+        <div class="card-joia-conteudo">
+          <h3>Colar "Gratidão" em Prata 925</h3>
+          <p>Corrente veneziana em prata com pingente manuscrito "Gratidão".</p>
+          <span class="card-joia-valor">R$ 119,99</span>
+          <span class="card-joia-aviso">Prata 925 legítima</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Colar+em+Prata+925+Gratidao" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/16.jpg" alt="Joia 16">
+        <div class="card-joia-conteudo">
+          <h3>Colar Letra Inicial em Prata 925</h3>
+          <p>Pingente cravejado com zircônias personalizável com a sua inicial.</p>
+          <span class="card-joia-valor">R$ 109,99</span>
+          <span class="card-joia-aviso">Consulte as letras disponíveis</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Colar+Letra+Inicial+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEÇÃO 3: CONJUNTOS -->
+    <h3 class="categoria-titulo">Conjuntos</h3>
+    <div class="catalogo-grid">
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/18.jpg" alt="Joia 18">
+        <div class="card-joia-conteudo">
+          <h3>Conjunto Colar Feminino</h3>
+          <p>Acompanha corrente com pingente ponto de luz e par de brincos combinando.</p>
+          <span class="card-joia-valor">R$ 129,99</span>
+          <span class="card-joia-aviso">Conjunto completo em prata</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Conjunto+Colar+Feminino" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/19.jpg" alt="Joia 19">
+        <div class="card-joia-conteudo">
+          <h3>Conjunto Masculino Banho Ouro 18k</h3>
+          <p>Corrente e pulseira masculina modelo Figaro em banho de Ouro 18k.</p>
+          <span class="card-joia-valor">R$ 229,99</span>
+          <span class="card-joia-aviso">Corrente + Pulseira</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Conjunto+Masculino+Ouro+18k" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEÇÃO 4: BRINCOS E PULSEIRAS -->
+    <h3 class="categoria-titulo">Brincos e Pulseiras</h3>
+    <div class="catalogo-grid">
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/17.jpg" alt="Joia 17">
+        <div class="card-joia-conteudo">
+          <h3>Brincos em Prata 925</h3>
+          <p>Diversos modelos delicados (flores, laços, corações) em Prata 925 legítima.</p>
+          <span class="card-joia-valor">R$ 24,99</span>
+          <span class="card-joia-aviso">Valor por par / Consulte modelos</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+nos+Brincos+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card-joia">
+        <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/20.jpg" alt="Joia 20">
+        <div class="card-joia-conteudo">
+          <h3>Pulseiras Femininas em Prata 925</h3>
+          <p>Modelos variados: baiana, bolinhas e rígida minimalista em Prata 925.</p>
+          <span class="card-joia-valor">A partir de R$ 85,99</span>
+          <span class="card-joia-aviso">Consulte os modelos disponíveis</span>
+          <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+nas+Pulseiras+Femininas+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <h4>CONTATO</h4>
+  <div class="contatos">
+    <a href="https://wa.me/5511949340556" target="_blank" rel="noopener">WhatsApp / Atendimento: (11) 94934-0556</a>
+    <span>|</span>
+    <a href="https://instagram.com/carrionpratasofc_" target="_blank" rel="noopener">Instagram: @carrionpratasofc_</a>
+  </div>
+  <div class="copy">© 2026 Carrion Pratas. Todos os direitos reservados.</div>
+</footer>
+
+<!-- WIDGET CHATBOT -->
+<div id="chat-widget">
+  <button id="chat-btn-toggle" onclick="toggleChat()">💬</button>
+  <div id="chat-container">
+    <div id="chat-header">
+      <span>Assistente Carrion Pratas</span>
+      <button onclick="toggleChat()">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+  </div>
+</div>
+
+<script>
+  function mostrarAba(id, botao) {
+    document.querySelectorAll('.aba').forEach(function(aba) {
+      aba.classList.remove('ativa');
+    });
+    document.getElementById(id).classList.add('ativa');
+
+    document.querySelectorAll('nav button').forEach(function(btn) {
+      btn.classList.remove('ativo');
+    });
+    if (botao) {
+      botao.classList.add('ativo');
+    }
+  }
+
+  /* LÓGICA DO CHATBOT */
+  const chatContainer = document.getElementById('chat-container');
+  const chatMessages = document.getElementById('chat-messages');
+  let chatIniciado = false;
+
+  function toggleChat() {
+    if (chatContainer.style.display === 'flex') {
+      chatContainer.style.display = 'none';
+    } else {
+      chatContainer.style.display = 'flex';
+      if (!chatIniciado) {
+        iniciarChat();
+        chatIniciado = true;
+      }
+    }
+  }
+
+  function adicionarMensagem(texto, remetente = 'bot') {
+    const div = document.createElement('div');
+    div.className = `msg ${remetente}`;
+    div.innerHTML = texto;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function iniciarChat() {
+    adicionarMensagem("Olá! Sou a assistente virtual da joalheria. Como posso ajudar?");
+    exibirMenuPrincipal();
+  }
+
+  function exibirMenuPrincipal() {
+    const htmlOpcoes = `
+      <div class="chat-options">
+        <button class="chat-opt-btn" onclick="escolherMenu(1)">1. Formas de Pagamento</button>
+        <button class="chat-opt-btn" onclick="escolherMenu(2)">2. Raio de Entrega (Apenas SP Capital)</button>
+        <button class="chat-opt-btn" onclick="escolherMenu(3)">3. Prazo de Entrega</button>
+        <button class="chat-opt-btn" onclick="escolherMenu(4)">4. Dúvidas Frequentes (FAQ)</button>
+      </div>
+    `;
+    adicionarMensagem(htmlOpcoes);
+  }
+
+  function escolherMenu(opcao) {
+    let textoOpcao = "";
+    let resposta = "";
+
+    if (opcao === 1) {
+      textoOpcao = "Formas de Pagamento";
+      resposta = "Aceitamos Pix, dinheiro, cartão de débito e cartão de crédito.";
+    } else if (opcao === 2) {
+      textoOpcao = "Raio de Entrega";
+      resposta = "Apenas São Paulo capital.";
+    } else if (opcao === 3) {
+      textoOpcao = "Prazo de Entrega";
+      resposta = "A entrega é em até 5 dias úteis apenas na capital.";
+    } else if (opcao === 4) {
+      textoOpcao = "Dúvidas Frequentes (FAQ)";
+      resposta = "Em caso de dúvida sobre devolução e garantias, entrar em contato direto conosco via WhatsApp ou Instagram.";
+    }
+
+    adicionarMensagem(textoOpcao, 'user');
+    setTimeout(() => {
+      adicionarMensagem(resposta);
+      exibirAvaliacaoDuvida();
+    }, 400);
+  }
+
+  function exibirAvaliacaoDuvida() {
+    const htmlOpcoes = `
+      <p><strong>Isso resolveu sua dúvida?</strong></p>
+      <div class="chat-options">
+        <button class="chat-opt-btn" onclick="avaliarResolucao('sim')">Sim</button>
+        <button class="chat-opt-btn" onclick="avaliarResolucao('nao')">Não</button>
+      </div>
+    `;
+    setTimeout(() => adicionarMensagem(htmlOpcoes), 400);
+  }
+
+  function avaliarResolucao(resposta) {
+    if (resposta === 'sim') {
+      adicionarMensagem("Sim", 'user');
+      setTimeout(() => {
+        const htmlOpcoes = `
+          <p><strong>Deseja realizar uma compra ou finalizar?</strong></p>
+          <div class="chat-options">
+            <button class="chat-opt-btn" onclick="posResolucao(1)">Finalizar atendimento</button>
+            <button class="chat-opt-btn" onclick="posResolucao(2)">Navegar na Loja</button>
+          </div>
+        `;
+        adicionarMensagem(htmlOpcoes);
+      }, 400);
+    } else {
+      adicionarMensagem("Não", 'user');
+      setTimeout(() => {
+        const htmlOpcoes = `
+          <p><strong>Opções de Suporte:</strong></p>
+          <div class="chat-options">
+            <a class="chat-opt-btn" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Vim+pelo+chatbot+e+preciso+falar+com+um+atendente" target="_blank" style="text-decoration:none;">Falar com Atendente (WhatsApp)</a>
+            <button class="chat-opt-btn" onclick="reiniciarMenu()">Voltar ao Menu Principal</button>
+          </div>
+        `;
+        adicionarMensagem(htmlOpcoes);
+      }, 400);
+    }
+  }
+
+  function posResolucao(opcao) {
+    if (opcao === 1) {
+      adicionarMensagem("Finalizar atendimento", 'user');
+      setTimeout(() => {
+        adicionarMensagem("Muito obrigado! Tenha um ótimo dia. 👋");
+      }, 400);
+    } else {
+      adicionarMensagem("Navegar na Loja", 'user');
+      setTimeout(() => {
+        adicionarMensagem("Redirecionando para o catálogo de joias...");
+        toggleChat();
+        const navButtons = document.querySelectorAll('nav button');
+        mostrarAba('catalogo', navButtons[1]);
+      }, 600);
+    }
+  }
+
+  function reiniciarMenu() {
+    adicionarMensagem("Voltar ao Menu Principal", 'user');
+    setTimeout(() => {
+      exibirMenuPrincipal();
+    }, 400);
+  }
+</script>
+
+</body>
+</html>
