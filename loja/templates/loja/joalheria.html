@@ -5,15 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carrion Pratas | Joias em Prata 925 e Ouro 18k</title>
 
-
 <meta name="description" content="Carrion Pratas - Encontre joias exclusivas em Prata 925 e Ouro 18k na Zona Leste de São Paulo. Anéis, colares, brincos e pulseiras com entrega garantida.">
 <meta name="keywords" content="joias, prata 925, ouro 18k, carrion pratas, aneis, colares, brincos, zona leste sp">
-
-
-<meta property="og:title" content="Carrion Pratas | Joias e Pratas">
-<meta property="og:description" content="Conheça nossas peças exclusivas em Prata 925 e Ouro 18k. Faça seu pedido diretamente pelo WhatsApp!">
-<meta property="og:image" content="./logotipo1.jpg">
-<meta property="og:type" content="website">
 
 <style>
   :root {
@@ -39,18 +32,18 @@
     min-height: 100vh;
   }
 
-  
   header {
     width: 100%;
     background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
-  .banner-img {
+  .logo-img {
     width: 100%;
-    max-height: 400px;
+    max-height: 320px;
     object-fit: cover;
     display: block;
   }
@@ -109,7 +102,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
- 
   .inicio-conteudo {
     text-align: center;
     max-width: 700px;
@@ -137,7 +129,6 @@
     margin: 20px auto;
   }
 
- 
   .catalogo-titulo {
     text-align: center;
     font-size: 1.8rem;
@@ -239,7 +230,6 @@
     background: #1ebc57;
   }
 
-  
   #chat-widget {
     position: fixed;
     bottom: 25px;
@@ -356,7 +346,6 @@
     color: #fff;
   }
 
-  
   footer {
     background: var(--preto);
     color: #ccc;
@@ -408,7 +397,7 @@
 <body>
 
 <header>
-  <img src="https://github.com/lucascavalcantidev/imagenscarrionpratas/raw/main/logotipo1.jpg" alt="Logotipo Carrion Pratas" style="width: 100%; height: auto; display: block;">
+  <img src="https://github.com/lucascavalcantidev/imagenscarrionpratas/raw/main/logotipo1.jpg" alt="Logotipo Carrion Pratas" class="logo-img">
   <nav>
     <button class="ativo" onclick="mostrarAba('inicio', this)">Início</button>
     <button onclick="mostrarAba('catalogo', this)">Catálogo</button>
@@ -416,8 +405,6 @@
 </header>
 
 <main>
-
-  
   <section id="inicio" class="aba ativa">
     <div class="inicio-conteudo">
       <h2>Bem-vindo(a) à Carrion Pratas!</h2>
@@ -437,15 +424,12 @@
     </div>
   </section>
 
-  
   <section id="catalogo" class="aba">
     <h2 class="catalogo-titulo">Catálogo de Peças</h2>
     <div class="linha-decorativa" style="margin-top:0;"></div>
 
-    
     <h3 class="categoria-titulo">Alianças e Anéis</h3>
     <div class="catalogo-grid">
-
       <div class="card-joia">
         <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/1.jpg" alt="Joia 1">
         <div class="card-joia-conteudo">
@@ -577,13 +561,10 @@
           <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+na+Alian%C3%A7a+em+Prata+950+com+30+pedras+em+zirc%C3%B4nia" target="_blank" rel="noopener">Comprar no WhatsApp</a>
         </div>
       </div>
-
     </div>
 
-    
     <h3 class="categoria-titulo">Colares</h3>
     <div class="catalogo-grid">
-
       <div class="card-joia">
         <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/10.jpg" alt="Joia 10">
         <div class="card-joia-conteudo">
@@ -627,13 +608,10 @@
           <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Colar+Letra+Inicial+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
         </div>
       </div>
-
     </div>
 
-    
     <h3 class="categoria-titulo">Conjuntos</h3>
     <div class="catalogo-grid">
-
       <div class="card-joia">
         <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/18.jpg" alt="Joia 18">
         <div class="card-joia-conteudo">
@@ -655,13 +633,10 @@
           <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+no+Conjunto+Masculino+Ouro+18k" target="_blank" rel="noopener">Comprar no WhatsApp</a>
         </div>
       </div>
-
     </div>
 
-    
     <h3 class="categoria-titulo">Brincos e Pulseiras</h3>
     <div class="catalogo-grid">
-
       <div class="card-joia">
         <img src="https://raw.githubusercontent.com/lucascavalcantidev/imagenscarrionpratas/main/17.jpg" alt="Joia 17">
         <div class="card-joia-conteudo">
@@ -683,10 +658,8 @@
           <a class="btn-comprar-wa" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Tenho+interesse+nas+Pulseiras+Femininas+em+Prata+925" target="_blank" rel="noopener">Comprar no WhatsApp</a>
         </div>
       </div>
-
     </div>
   </section>
-
 </main>
 
 <footer>
@@ -698,7 +671,6 @@
   </div>
   <div class="copy">© 2026 Carrion Pratas. Todos os direitos reservados.</div>
 </footer>
-
 
 <div id="chat-widget">
   <button id="chat-btn-toggle" onclick="toggleChat()">💬</button>
@@ -726,7 +698,6 @@
     }
   }
 
-  
   const chatContainer = document.getElementById('chat-container');
   const chatMessages = document.getElementById('chat-messages');
   let chatIniciado = false;
@@ -763,34 +734,51 @@
         <button class="chat-opt-btn" onclick="escolherMenu(2)">2. Raio de Entrega (Apenas SP Capital)</button>
         <button class="chat-opt-btn" onclick="escolherMenu(3)">3. Prazo de Entrega</button>
         <button class="chat-opt-btn" onclick="escolherMenu(4)">4. Dúvidas Frequentes (FAQ)</button>
+        <button class="chat-opt-btn" onclick="escolherMenu(5)" style="border-color: #d9534f; color: #d9534f;">5. ❌ Sair / Encerrar Chat</button>
       </div>
     `;
     adicionarMensagem(htmlOpcoes);
   }
 
-  function escolherMenu(opcao) {
+  async function escolherMenu(opcao) {
     let textoOpcao = "";
-    let resposta = "";
-
-    if (opcao === 1) {
-      textoOpcao = "Formas de Pagamento";
-      resposta = "Aceitamos Pix, dinheiro, cartão de débito e cartão de crédito.";
-    } else if (opcao === 2) {
-      textoOpcao = "Raio de Entrega";
-      resposta = "Apenas São Paulo capital.";
-    } else if (opcao === 3) {
-      textoOpcao = "Prazo de Entrega";
-      resposta = "A entrega é em até 5 dias úteis apenas na capital.";
-    } else if (opcao === 4) {
-      textoOpcao = "Dúvidas Frequentes (FAQ)";
-      resposta = "Em caso de dúvida sobre devolução e garantias, entrar em contato direto conosco via WhatsApp ou Instagram.";
-    }
+    if (opcao === 1) textoOpcao = "Formas de Pagamento";
+    else if (opcao === 2) textoOpcao = "Raio de Entrega";
+    else if (opcao === 3) textoOpcao = "Prazo de Entrega";
+    else if (opcao === 4) textoOpcao = "Dúvidas Frequentes (FAQ)";
+    else if (opcao === 5) textoOpcao = "Sair / Encerrar Chat";
 
     adicionarMensagem(textoOpcao, 'user');
-    setTimeout(() => {
-      adicionarMensagem(resposta);
-      exibirAvaliacaoDuvida();
-    }, 400);
+
+    try {
+      const respostaServidor = await fetch('/api/chat/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ opcao: String(opcao) })
+      });
+
+      const dados = await respostaServidor.json();
+
+      setTimeout(() => {
+        adicionarMensagem(dados.resposta);
+        
+        if (opcao === 5) {
+          setTimeout(() => {
+            toggleChat();
+          }, 1500);
+        } else {
+          exibirAvaliacaoDuvida();
+        }
+      }, 400);
+
+    } catch (erro) {
+      console.error("Erro ao comunicar com o Python:", erro);
+      setTimeout(() => {
+        adicionarMensagem("Desculpe, ocorreu um erro ao comunicar com o servidor.");
+      }, 400);
+    }
   }
 
   function exibirAvaliacaoDuvida() {
@@ -811,7 +799,7 @@
         const htmlOpcoes = `
           <p><strong>Deseja realizar uma compra ou finalizar?</strong></p>
           <div class="chat-options">
-            <button class="chat-opt-btn" onclick="posResolucao(1)">Finalizar atendimento</button>
+            <button class="chat-opt-btn" onclick="posResolucao(1)">Finalizar atendimento (Sair)</button>
             <button class="chat-opt-btn" onclick="posResolucao(2)">Navegar na Loja</button>
           </div>
         `;
@@ -825,6 +813,7 @@
           <div class="chat-options">
             <a class="chat-opt-btn" href="https://wa.me/5511949340556?text=Ol%C3%A1%21+Vim+pelo+chatbot+e+preciso+falar+com+um+atendente" target="_blank" style="text-decoration:none;">Falar com Atendente (WhatsApp)</a>
             <button class="chat-opt-btn" onclick="reiniciarMenu()">Voltar ao Menu Principal</button>
+            <button class="chat-opt-btn" onclick="escolherMenu(5)" style="border-color: #d9534f; color: #d9534f;">Sair / Encerrar Chat</button>
           </div>
         `;
         adicionarMensagem(htmlOpcoes);
@@ -834,10 +823,7 @@
 
   function posResolucao(opcao) {
     if (opcao === 1) {
-      adicionarMensagem("Finalizar atendimento", 'user');
-      setTimeout(() => {
-        adicionarMensagem("Muito obrigado! Tenha um ótimo dia. 👋");
-      }, 400);
+      escolherMenu(5);
     } else {
       adicionarMensagem("Navegar na Loja", 'user');
       setTimeout(() => {
